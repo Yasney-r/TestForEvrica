@@ -34,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
     colorModel->select();
     ui->tableView_Color->setModel(colorModel);
 
+
 }
 
 MainWindow::~MainWindow()
@@ -45,6 +46,9 @@ MainWindow::~MainWindow()
         }
     }
     model->submitAll();
+    delete model;
+    delete secondModel;
+    delete colorModel;
     delete ui;
 }
 
@@ -110,6 +114,7 @@ void MainWindow::on_btn_Saved_clicked()
     QString secondColor = firstColor.arg(cl).arg(name);
     qDebug()<<secondColor;
     query.exec(secondColor);
+
 }
 
 
